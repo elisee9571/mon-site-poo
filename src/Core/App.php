@@ -8,14 +8,18 @@ class App {
     {
        $path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH) ?? '/';
 
+        /**
+         * @params $routes array<string, array<string, string>>
+        */
        $routes = [
-           '/' => 'page home',
-           '/contact' => 'page contact',
-           '/products' => 'page products'
+           '/' => [\App\Controller\HomeController::class, 'index'],
+           '/contact' => [\App\Controller\HomeController::class, 'contact']
        ];
 
        if (isset($routes[$path])) {
-           echo $routes[$path];
+           [$controllerClass, $methodName] = $routes[$path];
+
+           (new $controllerClass())->$methodName();
            return;
        }
 
