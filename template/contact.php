@@ -15,12 +15,12 @@
 
     <div>
         <label for="email">Email</label>
-        <input id="email" type="email" name="email" placeholder="Saissisez votre mail">
+        <input id="email" type="email" name="email" placeholder="Saissisez votre mail" required>
     </div>
 
     <div>
         <label for="subject">Subject</label>
-        <select name="subject" id="subject">
+        <select name="subject" id="subject" required>
             <option value="refund">Remboursement</option>
             <option value="help">Aide</option>
             <option value="problem">Problème</option>
@@ -29,16 +29,12 @@
 
     <div>
         <label for="message">Message</label>
-        <textarea name="message" id="message" cols="30" rows="10" style="resize: none;"></textarea>
+        <textarea name="message" id="message" cols="30" rows="10" style="resize: none;" required></textarea>
     </div>
 
     <button type="submit">Soumettre</button>
 
 </form>
-
-<p><?= isset($email) ? $email : '' ?></p>
-<p><?= isset($subject) ? $subject : '' ?></p>
-<p><?= isset($message) ? $message : '' ?></p>
 
 </body>
 </html>
