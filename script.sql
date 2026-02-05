@@ -18,6 +18,15 @@ CREATE TABLE contact
     message TEXT         NOT NULL
 );
 
+CREATE TABLE product
+(
+    id          INT PRIMARY KEY AUTO_INCREMENT,
+    title       VARCHAR(255) NOT NULL,
+    description TEXT         NOT NULL,
+    price       FLOAT        NOT NULL
+);
+
+
 # Mes mdp sont "password"
 INSERT INTO user (username, email, password)
 VALUES ('M2i', 'm2i@gmail.com', '$2y$10$2CTv2LcrLK42K5eKezQDDu0bwhufFYVPCMwsPa/cAI/8wY5JaZLeK'),
