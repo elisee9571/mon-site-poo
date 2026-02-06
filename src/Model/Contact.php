@@ -2,6 +2,8 @@
 
 namespace App\Model;
 
+use DateTime;
+
 class Contact
 {
     private ?int $id = null;
@@ -11,6 +13,10 @@ class Contact
     private string $subject;
 
     private string $message;
+
+    private string $created_at;
+
+    private string $updated_at;
 
     public function getId(): ?int
     {
@@ -53,6 +59,28 @@ class Contact
     public function setMessage(string $message): Contact
     {
         $this->message = $message;
+        return $this;
+    }
+
+    public function getCreatedAt(): DateTime
+    {
+        return new DateTime($this->created_at);
+    }
+
+    public function setCreatedAt(string $created_at): Contact
+    {
+        $this->created_at = $created_at;
+        return $this;
+    }
+
+    public function getUpdatedAt(): string
+    {
+        return new DateTime($this->updated_at);
+    }
+
+    public function setUpdatedAt(string $updated_at): Contact
+    {
+        $this->updated_at = $updated_at;
         return $this;
     }
 }

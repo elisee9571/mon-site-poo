@@ -1,6 +1,11 @@
 <h1><?= $title ?></h1>
 
-<form action="" method="post">
+<form action="" method="post" enctype="multipart/form-data">
+
+    <div>
+        <label for="picture">Image</label>
+        <input id="picture" type="file" name="picture" placeholder="Choisissez une image" accept="image/*">
+    </div>
 
     <div>
         <label for="title">Titre</label>

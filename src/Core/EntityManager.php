@@ -116,4 +116,16 @@ class EntityManager
         $data['id'] = $entity->getId(); // pour le WHERE
         $stmt->execute($data);
     }
+
+    public function delete(object $entity): void
+    {
+        $reflection = new ReflectionClass($entity);
+        $table = strtolower($reflection->getShortName());
+
+        $stmt = $this->db->prepare("DELETE FROM {$table} WHERE id = :id");
+
+        $stmt->execute([
+            'id' => $entity->getId()
+        ]);
+    }
 }

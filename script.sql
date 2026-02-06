@@ -4,28 +4,35 @@ USE php_poo;
 
 CREATE TABLE `user`
 (
-    id       INT PRIMARY KEY AUTO_INCREMENT,
-    email    VARCHAR(255) NOT NULL UNIQUE,
-    username VARCHAR(255) NOT NULL UNIQUE,
-    password VARCHAR(255) NOT NULL
+    id         INT PRIMARY KEY AUTO_INCREMENT,
+    email      VARCHAR(255) NOT NULL UNIQUE,
+    username   VARCHAR(255) NOT NULL UNIQUE,
+    password   VARCHAR(255) NOT NULL,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
 
 CREATE TABLE contact
 (
-    id      INT PRIMARY KEY AUTO_INCREMENT,
-    email   VARCHAR(255) NOT NULL,
-    subject VARCHAR(255) NOT NULL,
-    message TEXT         NOT NULL
+    id         INT PRIMARY KEY AUTO_INCREMENT,
+    email      VARCHAR(255) NOT NULL,
+    subject    VARCHAR(255) NOT NULL,
+    message    TEXT         NOT NULL,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
 
 CREATE TABLE product
 (
     id          INT PRIMARY KEY AUTO_INCREMENT,
+    picture     VARCHAR(255),
     title       VARCHAR(255) NOT NULL,
+    slug        VARCHAR(255) NOT NULL,
     description TEXT         NOT NULL,
-    price       FLOAT        NOT NULL
+    price       FLOAT        NOT NULL,
+    created_at  DATETIME DEFAULT CURRENT_TIMESTAMP,
+    updated_at  DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
-
 
 # Mes mdp sont "password"
 INSERT INTO user (username, email, password)
