@@ -6,7 +6,7 @@
             <img src="<?= $product->getPicture() ?: '' ?>" class="card-img-top" alt="..." height="200" loading="lazy" style="object-fit: cover">
             <div class="card-body">
                 <h5 class="card-title"><?= $product->getTitle() ?></h5>
-                <p class="card-text"><?= $product->getprice() ?> €</p>
+                <p class="card-text"><?= $product->getPrice() ?> €</p>
                 <p class="card-text"><?= $product->getDescription() ?></p>
                 <a href="/product/<?= $product->getSlug() ?>/<?= $product->getId() ?>" class="btn btn-primary">Go somewhere</a>
             </div>
