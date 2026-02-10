@@ -2,7 +2,8 @@
 
 <h1><?= $title ?></h1>
 
-<form action="https://localhost:8081/product/1/delete" method="post">
+<form action="https://localhost:8081/product/<?= $product->getId() ?>/delete"
+      method="post">
     <input type="hidden" name="_token" value="<?= $_SESSION['_token'] ?>">
     <button type="submit" class="btn btn-danger">Delete</button>
 </form>
