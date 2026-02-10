@@ -1,7 +1,9 @@
+<?php $_SESSION['_token'] = bin2hex(random_bytes(16));  ?>
+
 <h1><?= $title ?></h1>
 
-<form action="/product/<?= $product->getId() ?>/delete" method="post">
-    <input type="hidden" name="_METHOD" value="DELETE">
+<form action="https://localhost:8081/product/1/delete" method="post">
+    <input type="hidden" name="_token" value="<?= $_SESSION['_token'] ?>">
     <button type="submit" class="btn btn-danger">Delete</button>
 </form>
 

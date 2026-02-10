@@ -115,7 +115,7 @@ class ProductController extends Controller
 
     public function delete(int $id): void
     {
-        if ($_SERVER['REQUEST_METHOD'] === 'POST' && $_POST['_METHOD'] === 'DELETE') {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && $_POST['_token'] === $_SESSION['_token']) {
             $productRepository = new ProductRepository();
             $product = $productRepository->findById($id);
 
@@ -125,6 +125,7 @@ class ProductController extends Controller
 
             $entityManager = new EntityManager();
             $entityManager->delete($product);
+            unset($_SESSION['_token']);
 
             $this->redirect('/');
         }
